@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="UserBudgetingApp2.MVVM.View.StatisticsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UserBudgetingApp2"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="850">
+
+    <StackPanel>
+
+        <TextBlock     Text="STATISTICS"
+                       Foreground="WHITE"
+                       FontSize="36"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Margin="0, 20,0,0" FontWeight="Bold" TextDecorations="Underline"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="225"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+
+
+                <TextBlock  Grid.Column="0"
+                            Text="USER NAMES"
+                            Foreground="WHITE"
+                            FontSize="20"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="10, 20,0,0" 
+                            FontWeight="Bold" 
+                            TextDecorations="Underline"/>
+
+                <ListBox x:Name="lbViewUsers" 
+                         Width="153" 
+                         Height="287"
+                         Margin="10, 10,0,0"
+                         HorizontalAlignment="Left" 
+                         FontSize="14" SelectionChanged="lbViewUsers_SelectedIndexChanged" />
+
+                <Button Height="30"
+                        Margin="10"
+                        Content="Clear User Stats"
+                        Name="clearButton" Click="clearButton_Clicked"/>
+                
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+
+                <lvc:CartesianChart Height="430" 
+                                    Name="Chart"
+           
+                                    LegendLocation="Right" >
+
+
+                </lvc:CartesianChart>
+
+
+
+            </StackPanel>
+
+        </Grid>
+
+
+
+    </StackPanel>
+    
+    
+</UserControl>

@@ -1,0 +1,604 @@
+﻿<UserControl x:Class="UserBudgetingApp2.MVVM.View.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UserBudgetingApp2.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="850">
+
+    <!--// Customisation style for the submit button //-->
+    <UserControl.Resources>
+        <Style x:Key="SubmitButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Purple" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </UserControl.Resources>
+
+    
+    
+    <StackPanel>
+        
+        <!--// Main Heading of the window //-->
+        
+        <TextBlock Text="ADD USER"
+                       Foreground="WHITE"
+                       FontSize="36"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Margin="0, 20,0,0" FontWeight="Bold" TextDecorations="Underline"/>
+        
+
+        <!--// Grid that contains the Contents //-->
+        
+        <Grid Height="450"
+              Margin="10">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+
+            </Grid.ColumnDefinitions>
+            
+            <!--// The Left Side of the Grid //-->
+            <StackPanel Grid.Column="0"
+                        Orientation="Vertical">
+                
+                <Border CornerRadius="20">
+
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0"
+                                             EndPoint="1,2">
+
+                            <GradientStop Color="#5bc3ff" Offset="0.0"/>
+                            <GradientStop Color="#3aa0ff" Offset="1" />
+
+                        </LinearGradientBrush>
+                        
+                    </Border.Background>
+                 
+                <!--// User  Details Input Fields 
+                    ENTER IMPORTANT DETAILS ~//-->    
+                    
+                <GroupBox BorderThickness="0"
+                          Foreground="White"
+                          Margin="10"
+                          Padding="10" FontSize="14">
+
+                     <GroupBox.Header>
+                         <TextBlock FontWeight="Bold" 
+                                       Text="Enter Important Details :"
+                                       TextDecorations="Underline">
+                                
+                         </TextBlock>
+                     </GroupBox.Header>
+
+                        <Grid >
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="200"/>
+                            
+                                <ColumnDefinition Width="200"/>
+                            
+
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+
+                            </Grid.RowDefinitions>
+
+                        <TextBlock Text="Enter your full name : "
+                                   Margin="0 0 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="0"/>
+
+               
+                        <TextBox   x:Name="tbUserName"   
+                                   Padding="2"
+                                   Margin="0 0 0 10"
+                                   Grid.Column="1"
+                                   Grid.Row="0"/>
+
+                        <TextBlock Text="Enter your Monthly Income : "
+                                   Margin="0 0 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="1"/>
+
+                        <Label     Content="R"
+                                   Foreground="White"
+                                   Grid.Column="0"
+                                   Grid.Row="1" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+                        <TextBox   x:Name="tbMonthlyIncome"   
+                                   Padding="2"
+                                   Margin="0 0 0 10"
+                                   Grid.Column="1"
+                                   Grid.Row="1"/>
+
+                        <TextBlock Text="Enter Monthly Tax Deducted : "
+                                   Margin="0 0 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="2"/>
+
+                        <Label     Content="R"
+                                   Foreground="White"
+                                   Grid.Column="0"
+                                   Grid.Row="2" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+                        <TextBox   x:Name="tbMonthlyTax"   
+                                   Padding="2"
+                                   Margin="0 0 0 10"
+                                   Grid.Column="1"
+                                   Grid.Row="2"/>
+
+
+
+                    </Grid>
+
+
+                
+
+                </GroupBox>
+
+                </Border>
+                
+                
+
+                
+                <Border CornerRadius="20"
+                        Margin="0 10 0 0">
+
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0"
+                                             EndPoint="1,2">
+
+                            <GradientStop Color="#ffc554" Offset="0.0"/>
+                            <GradientStop Color="#ffb73a" Offset="1" />
+
+                        </LinearGradientBrush>
+
+                    </Border.Background>
+
+                    <!--// User  Monthly Expenses Details Input Fields 
+                           ENTER MONTHLY EXPENSES ~//-->
+
+                    <GroupBox BorderThickness="0"
+                          Foreground="White"
+                          Margin="10"
+                          Padding="10" FontSize="14">
+
+                     <GroupBox.Header>
+                         <TextBlock FontWeight="Bold" 
+                                       Text="Enter Monthly Expenses :"
+                                       TextDecorations="Underline">
+                                
+                         </TextBlock>
+                     </GroupBox.Header>
+
+                    <Grid >
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
+
+
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+         
+
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Groceries : "
+                                   Margin="0 0 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="0"/>
+
+                        <Label     Content="R"
+                                   Foreground="White"
+                                   Grid.Column="0"
+                                   Grid.Row="0" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                        <TextBox   x:Name="tbGroceries"   
+                                   Padding="2"
+                                   Margin="0 0 0 10"
+                                   Grid.Column="1"
+                                   Grid.Row="0"/>
+
+                        <TextBlock Text="Water And Lights : "
+                                   Margin="0 0 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="1"/>
+
+                        <Label     Content="R"
+                                   Foreground="White"
+                                   Grid.Column="0"
+                                   Grid.Row="1" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                        <TextBox   x:Name="tbWaterAndLights"   
+                                   Padding="2"
+                                   Margin="0 0 0 10"
+                                   Grid.Column="1"
+                                   Grid.Row="1"/>
+
+                        <TextBlock Text="Travel Costs : "
+                                   Margin="0 0 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="2"/>
+
+                        <Label     Content="R"
+                                   Foreground="White"
+                                   Grid.Column="0"
+                                   Grid.Row="2" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                        <TextBox   x:Name="tbTravelCosts"   
+                                   Padding="2"
+                                   Margin="0 0 0 10"
+                                   Grid.Column="1"
+                                   Grid.Row="2"/>
+
+
+                        <TextBlock Text="Telecommunication Cost : "
+                                   Margin="0 0 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="3"/>
+
+                        <Label     Content="R"
+                                   Foreground="White"
+                                   Grid.Column="0"
+                                   Grid.Row="3" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                        <TextBox   x:Name="tbTele"   
+                                   Padding="2"
+                                   Margin="0 0 0 10"
+                                   Grid.Column="1"
+                                   Grid.Row="3"/>
+
+                        <TextBlock Text="Other Expenses : "
+                                   Margin="0 0 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="4"/>
+
+                        <Label     Content="R"
+                                   Foreground="White"
+                                   Grid.Column="0"
+                                   Grid.Row="4" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                        <TextBox   x:Name="tbOtherExpenses"   
+                                   Padding="2"
+                                   Margin="0 0 0 10"
+                                   Grid.Column="1"
+                                   Grid.Row="4"/>
+
+
+
+                    </Grid>
+
+
+
+
+                </GroupBox>
+
+                </Border>
+
+
+            </StackPanel>
+
+           
+            <!--// The Right Side Of the Grid //-->   
+            
+            <StackPanel Grid.Column="1"
+                        Orientation="Vertical"
+                        HorizontalAlignment="Center"
+                        Margin="10">
+
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        
+                    </Grid.ColumnDefinitions>
+                    
+                <!--// Radio Buttons for user to select //-->    
+                    
+                <TextBlock  Text="Are you :  " 
+                            Grid.Column="0"
+                            Foreground="White"
+                            FontWeight="Bold" 
+                            FontSize="14"
+                            TextDecorations="Underline"/>
+
+                <RadioButton Content="Renting Property"
+                             Grid.Column="1"
+                             Name="rentingRB"
+                             Foreground="White"
+                             FontSize="14" 
+                             Checked="RentRB_Checked" 
+                             Unchecked="RentRB_Unchecked"
+                            />
+
+                <RadioButton Content="Buying Property"
+                             Grid.Column="2"
+                             Name="buyingPropRB"
+                             Foreground="White"
+                             FontSize="14" Checked="BuyingPropRB_Checked" Unchecked="BuyingPropRB_Unchecked"/>
+
+                </Grid>
+
+                <Border Grid.Column="1"
+                        CornerRadius="20"
+                        Background="#ee2737"
+                        Margin="0 10 "
+                        Name="rentBorder">
+
+                    <!--// User Renting Details Input Fields 
+                           ENTER RENTING DATA~ //-->
+
+                    <GroupBox BorderThickness="0"
+                            Foreground="White"
+                            Margin="10"
+                            Padding="10" 
+                            FontSize="14"
+                              Name="gbRent">
+
+                        <GroupBox.Header>
+                            <TextBlock FontWeight="Bold" 
+                                       Text="Enter Renting Data :"
+                                       TextDecorations="Underline">
+
+                            </TextBlock>
+                        </GroupBox.Header>
+
+                        <Grid >
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="200"/>
+
+                                <ColumnDefinition Width="200"/>
+
+
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition />
+
+
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="Enter your Monthly Rent : "
+                                   Margin="0 0 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="0"/>
+
+                            <Label     Content="R"
+                                   Foreground="White"
+                                   Grid.Column="0"
+                                   Grid.Row="0" 
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Top"
+                                   FontWeight="Bold"/>
+
+                            <TextBox   x:Name="tbMonthlyRent"   
+                                   Padding="2"
+                                   Margin="0 0 0 10"
+                                   Grid.Column="1"
+                                   Grid.Row="0"/>
+
+
+
+                        </Grid>
+
+
+
+
+                    </GroupBox>
+
+                </Border>
+
+                <Border x:Name="propBorder" 
+                        Grid.Column="1"
+                        CornerRadius="20"
+                        Background="DarkOliveGreen"
+                        Margin="0 10 ">
+
+                    <!--// User HomeLoan Details Input Fields 
+                            ENTER HOME LOAN DATA~//-->
+
+                    <GroupBox BorderThickness="0"
+                          Foreground="White"
+                          Margin="10"
+                          Padding="10" FontSize="14">
+
+                        <GroupBox.Header>
+                            <TextBlock FontWeight="Bold" 
+                                       Text="Enter Home Loan Data :"
+                                       TextDecorations="Underline">
+
+                            </TextBlock>
+                        </GroupBox.Header>
+                        <Grid >
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="200"/>
+
+
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+
+
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="Property Pruchase Price : "
+                                   Margin="0 0 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="0"/>
+
+                            <Label     Content="R"
+                                   Foreground="White"
+                                   Grid.Column="0"
+                                   Grid.Row="0" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                            <TextBox   x:Name="tbPropPrice"   
+                                   Padding="2"
+                                   Margin="0 0 0 10"
+                                   Grid.Column="1"
+                                   Grid.Row="0"/>
+
+                            <TextBlock Text="Total Deposit Made : "
+                                   Margin="0 0 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="1"/>
+
+                            <Label     Content="R"
+                                   Foreground="White"
+                                   Grid.Column="0"
+                                   Grid.Row="1" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                            <TextBox   x:Name="tbDeposit"   
+                                   Padding="2"
+                                   Margin="0 0 0 10"
+                                   Grid.Column="1"
+                                   Grid.Row="1"/>
+
+                            <TextBlock Text="Interest Rate : "
+                                   Margin="0 0 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="2"/>
+
+                            <Label     Content="%"
+                                   Foreground="White"
+                                   Grid.Column="0"
+                                   Grid.Row="2" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                            <TextBox   x:Name="tbInterestRate"   
+                                   Padding="2"
+                                   Margin="0 0 0 10"
+                                   Grid.Column="1"
+                                   Grid.Row="2"/>
+
+
+                            <TextBlock Text="Repayment Months: "
+                                   Margin="0 0 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="3"/>
+
+
+                            <TextBox   x:Name="tbRepaymentMonths"   
+                                   Padding="2"
+                                   Margin="0 0 0 10"
+                                   Grid.Column="1"
+                                   Grid.Row="3"/>
+
+
+
+
+
+                        </Grid>
+
+
+                    </GroupBox>
+
+                </Border>
+
+                <!--// SUBMIT button //-->
+                
+                <Button Name="submitButton" 
+                        Width="150" 
+                        Height="40"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Margin="0 20" 
+                        Style="{StaticResource SubmitButtonStyle}" Click="SubmitButton_Clicked">
+
+               
+
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock Text="SUBMIT"
+                                   Foreground="White"
+                                   FontWeight="Bold"
+                                   Margin="10" FontSize="16"/>
+                        <Image Source="\Resources\Submit.png" />
+
+                    </StackPanel>
+
+                </Button>
+
+
+
+            </StackPanel>
+
+        
+
+
+        </Grid>
+        
+        
+        
+    </StackPanel>
+    
+</UserControl>

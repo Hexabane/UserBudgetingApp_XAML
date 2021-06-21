@@ -1,0 +1,587 @@
+﻿<UserControl x:Class="UserBudgetingApp2.MVVM.View.ReportView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UserBudgetingApp2.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1035">
+
+    <!--// Main Stack panel //-->
+    <StackPanel>
+        
+        <!--// WPF TITLE //-->
+        <TextBlock     Text="USER REPORTS"
+                       Foreground="WHITE"
+                       FontSize="36"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Margin="0, 20,0,0" FontWeight="Bold" TextDecorations="Underline"/>
+
+        <!--// MAIN GRID THAT INCLUDES FUNTIONAL COMPONENTS //-->
+        <Grid>
+
+           
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="225"/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="335"/>
+                <RowDefinition Height="200"/>
+            </Grid.RowDefinitions>
+
+
+            <!--// STACK PANEL FOR THE FIRST COLUMN AND FIRST ROW OF THE GRID //-->
+            <!--// DSIPLAYS THE USERS THAT ARE ADDED INTO THE SYSTEM //-->
+            <StackPanel Grid.Column="0"
+                        Grid.Row="0">
+
+
+                <TextBlock  Grid.Column="0"
+                            Text="USER REPORTS"
+                            Foreground="WHITE"
+                            FontSize="20"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="10, 20,0,0" 
+                            FontWeight="Bold" 
+                            TextDecorations="Underline"/>
+
+                <ListBox x:Name="lbViewUsers" 
+                         Width="153" 
+                         Height="287"
+                         Margin="10, 10,0,0"
+                         HorizontalAlignment="Left" 
+                         SelectionChanged="lbViewUsers_SelectedIndexChanged" FontSize="14" />
+
+            </StackPanel>
+
+            <!--// STACK PANEL FOR THE FIRST COLUMN AND SECOND ROW OF THE GRID //-->
+            <!--// DISPLAYS THE USER'S EXPENSES IN DESCENDING ORDER //-->
+            <StackPanel Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Grid.Row="1">
+
+                    <TextBlock  Grid.Column="0"
+                            Grid.Row="1"
+                            Text="USER EXPENSES (R)"
+                            Foreground="WHITE"
+                            FontSize="20"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="10, 0,0,0"
+                            FontWeight="Bold" 
+                            TextDecorations="Underline"/>
+
+
+                <ListBox x:Name="lbUserExpenses" 
+                         Width="320" 
+                         Grid.Row="1"
+                         Height="145"
+                         Margin="10, 10,0,0"
+                         HorizontalAlignment="Left" />
+
+
+
+
+
+            </StackPanel>
+
+            <!--// STACK PANEL FOR THE SECOND COLUMN AND SECOND ROW OF THE GRID //-->
+            <StackPanel Grid.Column="1"
+                        Grid.Row="0"
+                        Grid.RowSpan="2">
+
+                <Border CornerRadius="20"
+                        Margin="10 ">
+
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0"
+                                             EndPoint="1,2">
+
+                            <GradientStop Color="#ffc554" Offset="0.0"/>
+                            <GradientStop Color="#ffb73a" Offset="1" />
+
+                        </LinearGradientBrush>
+
+                    </Border.Background>
+
+                    <!--// User General Information Details Output Fields
+                            GENERAL USER INFORMATION~//-->
+                    <GroupBox   BorderThickness="0"
+                                Foreground="White"
+                                Margin="0 10 0 0"
+                                Padding="10" 
+                                FontSize="14">
+
+                        <GroupBox.Header>
+                            <TextBlock  FontWeight="Bold" 
+                                        Text="General User Information :"
+                                        TextDecorations="Underline">
+
+                            </TextBlock>
+                        </GroupBox.Header>
+
+                        <Grid >
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="150"/>
+
+
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+
+
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="Name :"
+                                       Margin=" 0 15 0 10"
+                                       Grid.Column="0"
+                                       Grid.Row="0"/>
+
+                            <Label Content="R"
+                                   Foreground="White"
+                                   Grid.Column="0"
+                                   Grid.Row="0" 
+                                   Margin="0 10"
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                            <TextBox x:Name="tbUserName"   
+                                     Padding="2"
+                                     Margin="0 10"
+                                     Grid.Column="1"
+                                     Grid.Row="0"
+                                     IsReadOnly="True"
+                                     FontWeight="Bold"
+                                     />
+
+                            <TextBlock Text="Gross Monthly Income :"
+                                       Margin=" 0 15 0 10"
+                                       Grid.Column="0"
+                                       Grid.Row="1"/>
+
+                            <Label Content="R"
+                                   Foreground="White"
+                                   Margin=" 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="1" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold" VerticalAlignment="Top"/>
+
+
+                            <TextBox   x:Name="tbMonthlyIncome"   
+                                       Padding="2"
+                                       Margin=" 0 10"
+                                       Grid.Column="1"
+                                       Grid.Row="1"
+                                       IsReadOnly="True"
+                                       FontWeight="Bold"
+                                       />
+
+                            <TextBlock Text="Total Monthly Expenses :"
+                                       Margin=" 0 15 0 10"
+                                       Grid.Column="0"
+                                       Grid.Row="2"/>
+
+                            <Label Content="R"
+                                   Foreground="White"
+                                   Margin=" 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="2" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                            <TextBox x:Name="tbMonthlyExpenses"   
+                                     Padding="2"
+                                     Margin=" 0 10"
+                                     Grid.Column="1"
+                                     Grid.Row="2"
+                                     IsReadOnly="True"
+                                     FontWeight="Bold"
+                                     />
+
+
+                            <TextBlock Text="Monthly Tax Deducted :"
+                                       Margin=" 0 15 0 10"
+                                       Grid.Column="0"
+                                       Grid.Row="3"/>
+
+                            <Label Content="R"
+                                   Foreground="White"
+                                   Margin=" 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="3" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                            <TextBox x:Name="tbTaxDeducted"   
+                                     Padding="2"
+                                     Margin=" 0 10"
+                                     Grid.Column="1"
+                                     Grid.Row="3"
+                                     IsReadOnly="True"
+                                     FontWeight="Bold"
+                                     />
+
+                            <TextBlock x:Name="labelRent" 
+                                       Text="Monthly Rent : "
+                                       Margin=" 0 15 0 10"
+                                       Grid.Column="0"
+                                       Grid.Row="4"/>
+
+                            <Label x:Name="labelRentR"     
+                                   Content="R"
+                                   Margin=" 0 10"
+                                   Foreground="White"
+                                   Grid.Column="0"
+                                   Grid.Row="4" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                            <TextBox x:Name="tbMonthlyRent"   
+                                     Padding="2"
+                                     Margin=" 0 10"
+                                     Grid.Column="1"
+                                     Grid.Row="4"
+                                     IsReadOnly="True"
+                                     FontWeight="Bold"
+                                     />
+
+                            <TextBlock x:Name="labelHL" 
+                                       Text="Home Loan Installments : "
+                                       Margin=" 0 15 0 10"
+                                       Grid.Column="0"
+                                       Grid.Row="5"/>
+
+                            <Label x:Name="labelHLR"    
+                                   Content="R"
+                                   Margin=" 0 10"
+                                   Foreground="White"
+                                   Grid.Column="0"
+                                   Grid.Row="5" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                            <TextBox x:Name="tbHLInstallments"   
+                                     Padding="2"
+                                     Margin=" 0 10 0 10"
+                                     Grid.Column="1"
+                                     Grid.Row="5"
+                                     IsReadOnly="True"
+                                     FontWeight="Bold"/>
+
+
+
+                        </Grid>
+
+
+
+
+
+
+                    </GroupBox>
+
+                </Border>
+
+            </StackPanel>
+
+
+            <!--// STACK PANEL FOR THE THIRD COLUMN AND FIRST ROW OF THE GRID //-->
+            <StackPanel Grid.Column="2"
+                        Grid.Row="0"
+                        Grid.RowSpan="2">
+
+                <Border CornerRadius="20"
+                        Width="370"
+                        Margin=" 0 10">
+
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0"
+                                             EndPoint="1,2">
+
+                            <GradientStop Color="#5bc3ff" Offset="0.0"/>
+                            <GradientStop Color="#3aa0ff" Offset="1" />
+
+                        </LinearGradientBrush>
+
+                    </Border.Background>
+
+
+                    <!--// User Vehicle Information Details Output Fields
+                            VEHICLE INFORMATION~//-->
+                    <GroupBox   BorderThickness="0"
+                                Foreground="White"
+                                Margin="0 10 0 0"
+                                Padding="10" 
+                                FontSize="14">
+
+                        <GroupBox.Header>
+                            <TextBlock  FontWeight="Bold" 
+                                    Text="Vehicle Information :"
+                                    TextDecorations="Underline">
+
+                            </TextBlock>
+                        </GroupBox.Header>
+
+                        <Grid >
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="150"/>
+
+
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+
+
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="Make And Model :"
+                                       Margin=" 0 15 0 10"
+                                       Grid.Column="0"
+                                       Grid.Row="0"/>
+
+                            <Label Content="R"
+                                   Foreground="White"
+                                   Margin=" 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="0" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                            <TextBox   x:Name="tbMakeAndModel"   
+                                       Padding="2"
+                                       Margin=" 0 10"
+                                       Grid.Column="1"
+                                       Grid.Row="0"
+                                       IsReadOnly="True"
+                                       FontWeight="Bold"
+                                       />
+
+                            <TextBlock Text="Purchase Price : "
+                                       Margin=" 0 15 0 10"
+                                       Grid.Column="0"
+                                       Grid.Row="1"/>
+
+                            <Label Content="R"
+                                   Foreground="White"
+                                   Margin=" 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="1" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                            <TextBox   x:Name="tbPurchasePrice"   
+                                       Padding="2"
+                                       Margin=" 0 10"
+                                       Grid.Column="1"
+                                       Grid.Row="1"
+                                       IsReadOnly="True"
+                                       FontWeight="Bold"
+                                       />
+
+                            <TextBlock Text="Deposit Made : "
+                                       Margin=" 0 15 0 10"
+                                       Grid.Column="0"
+                                       Grid.Row="2"/>
+
+                            <Label Content="R"
+                                   Foreground="White"
+                                   Margin=" 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="2" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                            <TextBox   x:Name="tbDepositMade"   
+                                       Padding="2"
+                                       Margin=" 0 10"
+                                       Grid.Column="1"
+                                       Grid.Row="2" 
+                                       IsReadOnly="True"
+                                       FontWeight="Bold"/>
+
+
+                            <TextBlock Text="Interest Rate : "
+                                       Margin=" 0 15 0 10"
+                                       Grid.Column="0"
+                                       Grid.Row="3"/>
+
+                            <Label Content="R"
+                                   Foreground="White"
+                                   Margin=" 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="3" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                            <TextBox x:Name="tbInterestRate"   
+                                     Padding="2"
+                                     Margin=" 0 10"
+                                     Grid.Column="1"
+                                     Grid.Row="3"
+                                     IsReadOnly="True"
+                                     FontWeight="Bold"/>
+
+                            <TextBlock Text="Insurance Premium : "
+                                       Margin=" 0 15 0 10"
+                                       Grid.Column="0"
+                                       Grid.Row="4"/>
+
+                            <Label Content="R"
+                                   Foreground="White"
+                                   Margin=" 0 10"
+                                   Grid.Column="0"
+                                   Grid.Row="4" 
+                                   HorizontalAlignment="right"
+                                   FontWeight="Bold"/>
+
+
+                            <TextBox   x:Name="tbInsurnacePremium"   
+                                       Padding="2"
+                                       Margin=" 0 10"
+                                       Grid.Column="1"
+                                       Grid.Row="4"
+                                       IsReadOnly="True"
+                                       FontWeight="Bold"/>
+
+                            <TextBlock Text="Vehicle Installments : "
+                                       Margin=" 0 15 0 10"
+                                       Grid.Column="0"
+                                       Grid.Row="5"/>
+
+                            <Label  Content="R"
+                                    Foreground="White"
+                                    Margin=" 0 10"
+                                    Grid.Column="0"
+                                    Grid.Row="5" 
+                                    HorizontalAlignment="right"
+                                    FontWeight="Bold"/>
+
+
+                            <TextBox x:Name="tbVehicleInstallments"   
+                                     Padding="2"
+                                     Margin=" 0 10"
+                                     Grid.Column="1"
+                                     Grid.Row="5"
+                                     IsReadOnly="True"
+                                     FontWeight="Bold"/>
+
+
+
+                        </Grid>
+
+
+
+
+
+
+                    </GroupBox>
+
+                </Border>
+
+
+
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="1"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Margin="10 50">
+                
+                <!--// Output field for the money left of the selected User //-->
+                <Border CornerRadius="20"
+                        Background="#ee2737"
+                        Height="50" Width="414">
+
+
+                    <Grid Width="602">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Money Left : " 
+                                   Foreground="White"
+                                   FontSize="16"
+                                   Margin="20 0"
+                                   HorizontalAlignment="Left" 
+                                   VerticalAlignment="Center"
+                                   Width="109" 
+                                   FontWeight="Bold" />
+
+                        <Label  Content="R"
+                                Margin="220,0,0,0"
+                                HorizontalAlignment="Left"
+                                Foreground="White"
+                                Grid.Column="0"
+                                FontWeight="Bold" 
+                                FontSize="14" 
+                                VerticalAlignment="Center" 
+                                Width="19" />
+
+
+                        <TextBox x:Name="tbMoneyLeft"   
+                                 Padding="2"
+                                 Height="25" 
+                                 HorizontalAlignment="Left" 
+                                 Margin="244,12,0,12"
+                                 Width="153" 
+                                 Grid.ColumnSpan="2"
+                                 IsReadOnly="True"
+                                 FontWeight="Bold" FontSize="14"
+                                 
+                           />
+
+                    </Grid>
+
+                </Border>
+
+            </StackPanel>
+
+
+
+
+
+
+
+        </Grid>
+
+
+
+    </StackPanel>
+</UserControl>

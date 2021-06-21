@@ -1,0 +1,37 @@
+﻿<Application x:Class="UserBudgetingApp2.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:UserBudgetingApp2"
+             xmlns:viewmodel="clr-namespace:UserBudgetingApp2.MVVM.ViewModel"
+             xmlns:view="clr-namespace:UserBudgetingApp2.MVVM.View"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <DataTemplate DataType="{x:Type viewmodel:AddUserViewModel}">
+
+                <view:HomeView/>
+
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodel:VehicleViewModel}">
+
+                <view:VehicleView/>
+
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodel:ReportViewModel}">
+
+                <view:ReportView/>
+
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodel:StatisticViewModel}">
+
+                <view:StatisticsView/>
+
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
